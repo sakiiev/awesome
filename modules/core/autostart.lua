@@ -3,5 +3,7 @@ local function run_once(cmd)
   awful.spawn.with_shell("pgrep -u $USER -x " .. application .. " > /dev/null || (" .. cmd .. ")")
 end
 
+run_once("pipewire")
+
 run_once("picom")
 run_once("easyeffects -w")
