@@ -13,22 +13,22 @@ local theme = {}
 -----------------------------
 
 local colors = {
-	base = "#191724",
-	base_dim = "#16141f",
-	surface = "#1f1d2e",
-	overlay = "#26233a",
-	muted = "#6e6a86",
-	subtle = "#908caa",
-	text = "#e0def4",
-	love = "#eb6f92",
-	gold = "#f6c177",
-	rose = "#ebbcba",
-	pine = "#31748f",
-	foam = "#9ccfd8",
-	iris = "#c4a7e7",
-	highlight_low = "#21202e",
-	highlight_med = "#403d52",
-	highlight_high = "#524f67",
+    base = "#191724",
+    base_dim = "#16141f",
+    surface = "#1f1d2e",
+    overlay = "#26233a",
+    muted = "#6e6a86",
+    subtle = "#908caa",
+    text = "#e0def4",
+    love = "#eb6f92",
+    gold = "#f6c177",
+    rose = "#ebbcba",
+    pine = "#31748f",
+    foam = "#9ccfd8",
+    iris = "#c4a7e7",
+    highlight_low = "#21202e",
+    highlight_med = "#403d52",
+    highlight_high = "#524f67",
 }
 
 colors.accent = colors.gold
@@ -38,7 +38,7 @@ theme.font = "GeistMono NFM SemiBold 8"
 theme.useless_gap = dpi(config.base_size / 4)
 theme.border_width = dpi(0)
 
-theme.wallpaper = gfs.get_configuration_dir() .. "resources/wallpapers.jpg"
+theme.wallpaper = gfs.get_configuration_dir() .. "resources/wallpapers.png"
 
 -----------------------------
 -- Defaults
@@ -99,14 +99,14 @@ theme.titlebar_fg_normal = colors.muted
 theme.titlebar_fg_focus = colors.accent
 
 theme.titlebar_maximized_button_normal_active =
-	recolor_image(icons_path .. "maximize-unactive.svg", theme.titlebar_fg_normal)
+    recolor_image(icons_path .. "maximize-unactive.svg", theme.titlebar_fg_normal)
 theme.titlebar_maximized_button_focus_active =
-	recolor_image(icons_path .. "maximize-unactive.svg", theme.titlebar_fg_focus)
+    recolor_image(icons_path .. "maximize-unactive.svg", theme.titlebar_fg_focus)
 
 theme.titlebar_maximized_button_normal_inactive =
-	recolor_image(icons_path .. "maximize-active.svg", theme.titlebar_fg_normal)
+    recolor_image(icons_path .. "maximize-active.svg", theme.titlebar_fg_normal)
 theme.titlebar_maximized_button_focus_inactive =
-	recolor_image(icons_path .. "maximize-active.svg", theme.titlebar_fg_focus)
+    recolor_image(icons_path .. "maximize-active.svg", theme.titlebar_fg_focus)
 
 theme.titlebar_minimize_button_normal = recolor_image(icons_path .. "minimize.svg", theme.titlebar_fg_normal)
 theme.titlebar_minimize_button_focus = recolor_image(icons_path .. "minimize.svg", theme.titlebar_fg_focus)
