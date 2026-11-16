@@ -1,24 +1,19 @@
-package.loaded["naughty.dbus"] = {} -- replaced by dunst
+package.loaded["naughty.dbus"] = {}
 
-require("modules.core.globals")
+require("core.globals")
 
-beautiful.init(gears.filesystem.get_configuration_dir() .. "modules/core/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
 require("awful.autofocus")
 
-require("modules.core.error-handling")
-require("modules.core.layouts")
-require("modules.core.tags")
-require("modules.core.rules")
+require("core.error_handling")
+require("core.layouts")
+require("core.tags")
+require("core.rules")
+require("core.bindings")
 
-require("modules.bindings.clientbuttons")
-require("modules.bindings.clientkeys")
-require("modules.bindings.globalkeys")
+require("ui.wallpapers")
+require("ui.wibar")
+require("ui.menu")
 
-require("modules.ui.titlebars")
-require("modules.ui.wibar")
-require("modules.ui.sysmenu")
-require("modules.ui.wallpapers")
-require("modules.ui.notifications")
-
-require("modules.core.autostart")
+require("core.autostart")

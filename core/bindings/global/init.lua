@@ -1,0 +1,5 @@
+require("core.bindings.global.general")
+require("core.bindings.global.tags")
+require("core.bindings.global.focus")
+require("core.bindings.global.move")
+require("core.bindings.global.mouse")
