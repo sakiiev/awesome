@@ -95,6 +95,10 @@ theme.language_bg = colors.neutral_yellow
 theme.textclock_bg = colors.gray
 theme.textclock_fg = colors.bg0_h
 
+-- Battrey
+theme.battery_bg = colors.neutral_blue
+theme.battery_fg = colors.bg0_h
+
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:

@@ -29,6 +29,7 @@ screen.connect_signal("request::wallpaper", function(s)
         layout = wibox.layout.fixed.horizontal,
         spacing = -dpi(10),
         systray,
+        require("ui.wibar.battery")(),
         require("ui.wibar.language")(),
         require("ui.wibar.textclock")()
       },
