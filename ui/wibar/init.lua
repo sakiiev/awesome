@@ -8,6 +8,11 @@ screen.connect_signal("request::wallpaper", function(s)
     })
   end
 
+  local battery = nil
+  if gears.filesystem.dir_readable("/sys/class/power_supply/BAT0") then
+    battery = require("ui.wibar.battery")()
+  end
+
   s.wibar = awful.wibar({
     screen = s,
     position = "top",
@@ -29,7 +34,7 @@ screen.connect_signal("request::wallpaper", function(s)
         layout = wibox.layout.fixed.horizontal,
         spacing = -dpi(10),
         systray,
-        require("ui.wibar.battery")(),
+        battery,
         require("ui.wibar.language")(),
         require("ui.wibar.textclock")()
       },
