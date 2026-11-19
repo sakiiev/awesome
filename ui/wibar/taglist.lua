@@ -23,8 +23,22 @@ return function(s)
   local colors = {
     normal = beautiful.taglist_bg_empty,
     focus = beautiful.taglist_bg_focus,
-    occupied = beautiful.taglist_bg_occupied
+    occupied = beautiful.taglist_bg_occupied,
+    urgent = beautiful.taglist_bg_urgent or beautiful.bg_urgent,
   }
+
+  local function tag_color(t)
+    if not t then
+      return colors.normal
+    elseif t.selected then
+      return colors.focus
+    elseif t.urgent then
+      return colors.urgent
+    elseif #t:clients() > 0 then
+      return colors.occupied
+    end
+    return colors.normal
+  end
 
   local start_bg = wibox.container.background()
   local start_widget = {
@@ -47,31 +61,20 @@ return function(s)
 
   local function update()
     local tags = s.tags
-    local last = tags[#tags]
-    local first = tags[1]
-
-    if first and first.selected then
-      start_bg.bg = colors.focus
-    elseif first and #first:clients() > 0 then
-      start_bg.bg = colors.occupied
-    else
-      start_bg.bg = colors.normal
-    end
-
-    if last and last.selected then
-      end_bg.bg = colors.focus
-    elseif last and #last:clients() > 0 then
-      end_bg.bg = colors.occupied
-    else
-      end_bg.bg = colors.normal
-    end
+    start_bg.bg = tag_color(tags[1])
+    end_bg.bg = tag_color(tags[#tags])
   end
 
-  tag.connect_signal("property::selected", function(t)
+  local function on_tag(t)
     if t.screen == s then
       update()
     end
-  end)
+  end
+
+  tag.connect_signal("property::selected", on_tag)
+  tag.connect_signal("property::urgent", on_tag)
+  tag.connect_signal("tagged", on_tag)
+  tag.connect_signal("untagged", on_tag)
 
   local taglist = awful.widget.taglist({
     screen = s,
