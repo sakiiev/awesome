@@ -49,7 +49,7 @@ end
 
 local function mute_source_toggle()
   awful.spawn.easy_async_with_shell(
-    "wpctl set-mute" .. source .. "toggle && wpctl get-volume " .. source,
+    "wpctl set-mute " .. source .. " toggle && wpctl get-volume " .. source,
     function(stdout)
       local vol = tonumber(stdout:match("%d%.%d%d")) * 100 or 0
       local muted = stdout:find("MUTED") ~= nil
