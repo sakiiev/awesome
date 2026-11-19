@@ -21,7 +21,7 @@ return function()
     widget = wibox.container.background,
     shape = shape,
     bg = beautiful.language_bg,
-    fg = beautiful.textclock_fg,
+    fg = beautiful.language_fg,
     {
       widget = wibox.container.margin,
       left = dpi(15),

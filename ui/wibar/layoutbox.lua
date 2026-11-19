@@ -31,7 +31,7 @@ return function(s)
   return wibox.widget({
     widget = wibox.container.background,
     bg = beautiful.layoutbox_bg,
-    fg = "#000000",
+    fg = beautiful.layoutbox_fg,
     {
       widget = wibox.layout.fixed.horizontal,
       {
