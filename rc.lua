@@ -15,5 +15,6 @@ require("core.bindings")
 require("ui.wallpapers")
 require("ui.wibar")
 require("ui.menu")
+require("ui.osd")
 
 require("core.autostart")

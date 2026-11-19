@@ -93,6 +93,10 @@ theme.tasklist_fg_urgent = colors.fg0
 theme.tasklist_bg_minimize = colors.bg0_h
 theme.tasklist_fg_minimize = colors.gray
 
+-- OSD
+theme.osd_bar_fg = colors.fg2
+theme.osd_bar_bg = colors.bg0_h
+
 -- Powerline segments (bg = accent, fg = dark text)
 theme.layoutbox_bg = colors.neutral_yellow
 theme.layoutbox_fg = colors.bg0_h
