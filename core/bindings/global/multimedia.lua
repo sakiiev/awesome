@@ -66,6 +66,30 @@ local function mute_source_toggle()
   )
 end
 
+local function set_brightness(amount)
+  awful.spawn.easy_async_with_shell(
+    "brightnessctl set " .. amount .. " --quiet && brightnessctl -m",
+    function(stdout)
+      local out = gears.string.split(stdout, ",")
+      local current_brightness = out[3]
+      local max_brightness = out[5]
+      local brightness_percent = (current_brightness / max_brightness) * 100
+
+      local icon = "󰃠"
+
+      if brightness_percent <= 10 then
+        icon = "󰃞"
+      elseif brightness_percent <= 50 then
+        icon = "󰃟"
+      elseif brightness_percent > 50 then
+        icon = "󰃠"
+      end
+
+      awesome.emit_signal("osd::level", icon, brightness_percent)
+    end
+  )
+end
+
 awful.keyboard.append_global_keybindings({
   -- Volume
   awful.key({}, "XF86AudioRaiseVolume", function()
@@ -108,10 +132,10 @@ awful.keyboard.append_global_keybindings({
 
   -- Brightness
   awful.key({}, "XF86MonBrightnessUp", function()
-    awful.spawn("xbacklight -inc 5", false)
+    set_brightness("10%+")
   end, { description = "raise brightness", group = "media" }),
 
   awful.key({}, "XF86MonBrightnessDown", function()
-    awful.spawn("xbacklight -dec 5", false)
+    set_brightness("10%-")
   end, { description = "lower brightness", group = "media" }),
 })
